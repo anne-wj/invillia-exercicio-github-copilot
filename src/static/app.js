@@ -74,6 +74,12 @@ document.addEventListener("DOMContentLoaded", () => {
         messageDiv.textContent = result.message;
         messageDiv.className = "success";
         signupForm.reset();
+        // Atualiza lista de atividades e disponibilidade
+        // Limpa opções do select para evitar duplicidade
+        while (activitySelect.options.length > 1) {
+          activitySelect.remove(1);
+        }
+        fetchActivities();
       } else {
         messageDiv.textContent = result.detail || "An error occurred";
         messageDiv.className = "error";
